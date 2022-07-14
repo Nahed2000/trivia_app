@@ -41,19 +41,18 @@ class _UserScreenState extends State<UserScreen> {
               return const Center(child: CircularProgressIndicator());
             } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
               return ListView.builder(
-                itemCount: snapshot.data!.length,
-                padding: const EdgeInsetsDirectional.only(
-                    start: 20, top: 20, end: 20),
-                itemBuilder: (context, index) {
-                  return ListTile(
-              title: Text(snapshot.data![index].firstName),
-            subtitle: Text(snapshot.data![index].email),
-            leading: CircleAvatar(
-            radius: 50,
-            child: Image.network(snapshot.data![index].image),
-            ));
-                }
-              );
+                  itemCount: snapshot.data!.length,
+                  padding: const EdgeInsetsDirectional.only(
+                      start: 20, top: 20, end: 20),
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                        title: Text(snapshot.data![index].firstName),
+                        subtitle: Text(snapshot.data![index].email),
+                        leading: CircleAvatar(
+                          radius: 50,
+                          child: Image.network(snapshot.data![index].image),
+                        ));
+                  });
             } else {
               return const Center(child: Text('Don\'t have any Data'));
             }
